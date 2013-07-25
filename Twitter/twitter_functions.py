@@ -2,6 +2,11 @@ import twitter
 import util
 
 BOSTON_WOEID = 2367105
+#READ ONLY CREDS TO THE PHILLYPUG TWITTER STREAM
+CONSUMER_KEY = '4Aq8dWoPUgErnEbkGTEVA'
+CONSUMER_SECRET = 'We will Give this to you in Class'
+ACCESS_TOKEN_KEY = '312791763-4Gi0iN2R4AbPofQMxIXAX64SzUrKZuVSEQchXglRp'
+ACCESS_TOKEN_SECRET = '5Iq6x4Pqo0kM9fYdCssKGwTgQMtmjF3ugFKydu0fspE'
 
 def search(searchTerm):
     """
@@ -12,7 +17,11 @@ def search(searchTerm):
     For example,
         python twitter_api.py --search=python
     """
-    api = twitter.Api()
+    api = twitter.Api(consumer_key = CONSUMER_KEY,
+                      consumer_secret = CONSUMER_SECRET,
+                      access_token_key = ACCESS_TOKEN_KEY,
+                      access_token_secret = ACCESS_TOKEN_SECRET)
+
     tweets = api.GetSearch(searchTerm)
     for tweet in tweets:
         util.safe_print(tweet.GetText())
@@ -24,7 +33,10 @@ def trendingTopics():
     To test this function, at the command line run:
         python twitter_api.py -t
     """
-    api = twitter.Api()
+    api = twitter.Api(consumer_key = CONSUMER_KEY,
+                  consumer_secret = CONSUMER_SECRET,
+                  access_token_key = ACCESS_TOKEN_KEY,
+                  access_token_secret = ACCESS_TOKEN_SECRET)
 
     trending_topics = api.GetTrendsWoeid(BOSTON_WOEID)
     for topic in trending_topics:
