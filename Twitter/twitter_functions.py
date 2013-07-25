@@ -1,7 +1,7 @@
 import twitter
 import util
 
-BOSTON_WOEID = 2367105
+PHILLY_WOEID = 2471217
 #READ ONLY CREDS TO THE PYSTAR TWITTER STREAM
 CONSUMER_KEY = '4Aq8dWoPUgErnEbkGTEVA'
 CONSUMER_SECRET = 'We will give this to you in class :)'
@@ -38,7 +38,7 @@ def trendingTopics():
                   access_token_key = ACCESS_TOKEN_KEY,
                   access_token_secret = ACCESS_TOKEN_SECRET)
 
-    trending_topics = api.GetTrendsWoeid(BOSTON_WOEID)
+    trending_topics = api.GetTrendsWoeid(PHILLY_WOEID)
     for topic in trending_topics:
         util.safe_print(topic.name)
 
@@ -51,7 +51,7 @@ def userTweets(username):
     To test this function, at the command line run:
         python twitter_api.py -u <username>
     For example,
-        python twitter_api.py -u bostonpython
+        python twitter_api.py -u PyStarPhilly
     """
     pass
 
